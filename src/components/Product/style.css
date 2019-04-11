@@ -1,0 +1,13 @@
+ 
+ .product-card {
+     width: 25%;
+ }
+ 
+ img {
+     width: 95%;
+ }
+
+ .img-container {
+     border-bottom: 1px solid black;
+     text-align: center;
+ }
