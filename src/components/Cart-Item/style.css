@@ -1,0 +1,19 @@
+.cart-img {
+    height: 80px;
+    width: 100px;
+    object-fit: scale-down;
+}
+
+.cart-Item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.item-content {
+    display: flex;
+}
+
+.delete {
+    color: #0266C0;
+    margin-left: 20px;
+}

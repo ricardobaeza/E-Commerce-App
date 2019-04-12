@@ -5,4 +5,24 @@
 
 #titleText {
     color: white;
+    margin: none;
+
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    font-size: 35px;
+    margin: 5px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

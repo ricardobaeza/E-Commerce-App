@@ -1,0 +1,28 @@
+.item-header {
+    display: flex;
+    justify-content: center;
+    border-bottom: none;
+    color: #F45B69
+}
+
+.price {
+    color: #F45B69
+
+}
+
+.prod-img {
+    width: 20%;
+    height: 30%
+}
+
+.image-container {
+    text-align: center;
+}
+
+.btn-right {
+    margin-left: 2vw;
+}
+
+.item-container {
+    margin: 40px;
+}

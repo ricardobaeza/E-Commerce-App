@@ -1,9 +1,12 @@
-import React from "react";
+import React, {Component} from "react";
+import {NavLink} from "react-router-dom";
 import "./style.css";
 
-const Product = (props) => {
-    console.log(props);
-    return (
+
+const Product =(props) => {
+
+        return (
+        
         <div className="product-card">
             <div className="img-container">
                 <img src={props.img}/>
@@ -14,7 +17,8 @@ const Product = (props) => {
                 <p>${props.price}</p>
                 <p>{props.description}</p>
             </div>
-        </div>
-    )
+        </div>)
 }
+
+
 export default Product;
