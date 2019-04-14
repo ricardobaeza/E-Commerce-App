@@ -5,7 +5,15 @@
     justify-content: space-between;
     align-items: center;
 }
+.product-card {
+    margin: 0 20px;
+    height: 50%;
+    width: 30%
+}
 
+.product-card > a {
+    color: black
+}
 .input {
     height: 30px;
     width: 30vw;
@@ -20,11 +28,27 @@
 }
 
 .main-content {
-    margin: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 60px auto;
+}
 
+a:hover {
+    text-decoration: none !important;
 }
 
 h1 {
     color: 7F7F7F;
     
+}
+
+#filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#filter-products-label {
+    width: 200px;
+    margin: 0 5px;
 }

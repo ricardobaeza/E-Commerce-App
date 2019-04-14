@@ -4,8 +4,20 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css'
+import { Provider } from "react-redux";
+import { createStore, combineReducers } from '../../../../Library/Caches/typescript/3.4.3/node_modules/redux';
+import  productsReducer from "./reducers/product-reducer";
+import  userCart  from "./reducers/userCart";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const allReducers = combineReducers({
+  products: productsReducer,
+  userCart: userCart
+})
+
+const store = createStore(allReducers);
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
