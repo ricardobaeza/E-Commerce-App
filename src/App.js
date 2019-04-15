@@ -20,6 +20,7 @@ class App extends Component {
                 <Route path="/" component={ProductsPage} exact/>
                 <Route path="/detailsPage/:id" component={ProdDetailPage} />
                 <Route path="/cart" component={Cart}/>
+                <Route path="/E-Commerce-App/"exact component ={ProductsPage} />
               </div>
 
         </BrowserRouter>
