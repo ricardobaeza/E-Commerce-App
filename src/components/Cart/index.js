@@ -7,6 +7,9 @@ import { store } from "../../index"
 
 class Cart extends Component {
 
+    state = {
+        hidden: true,
+    }
     
     deleteCartItem = (value)=> {
         this.forceUpdate();
@@ -16,12 +19,46 @@ class Cart extends Component {
         }
         store.dispatch(deleteItem);
     }
+
+    showEdit = () => {
+        this.setState({
+            hidden: false
+        })
+    }
+    hideEdit = () => {
+        this.setState({
+            hidden: true
+        })
+    }
+
+    
+
+    editItem = (itemPackage) => {
+        const editItem = {
+            type: 'edit',
+            payload: {
+                newQuantity: itemPackage.newQuantity,
+                currentItemId: itemPackage.currentItemId,
+                currentItem: itemPackage.currentItem
+            }
+        }
+        store.dispatch(editItem);
+    }
     render() {
         if (this.props.Cart.length > 0) {
             return (
                 <div>
                     {
-                        this.props.Cart.map( (product ,index)=>  <CartItem  {...product.item} quantity={product.quantity} key={index} id={index} deleteFunction= {this.deleteCartItem}/>)
+                        this.props.Cart.map( (product ,index)=>  <CartItem  {...product.item} 
+                                                                  quantity={product.quantity} 
+                                                                  key={index} 
+                                                                  id={index} 
+                                                                  deleteFunction= {this.deleteCartItem}
+                                                                  showEdit= {this.showEdit}
+                                                                  isHidden={this.state.hidden}
+                                                                  exitModal={this.hideEdit}
+                                                                  editItem={this.editItem}
+                                                                  />)
                     }
                 </div>
             )

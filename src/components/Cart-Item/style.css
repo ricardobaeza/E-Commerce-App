@@ -19,12 +19,19 @@
 }
 
 .delete {
-    color: #0266C0;
     margin-left: 20px;
+    color: #0266C0;
+
+}
+
+.edit {
+    margin-left: 20px;
+    color: #0266C0;
+
 }
 
 .cart-item-options {
-    margin: 0;
+    display: flex;
 }
 
 .cart-item-container {
