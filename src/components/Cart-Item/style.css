@@ -7,13 +7,38 @@
 .cart-Item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
+
+
 .item-content {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .delete {
     color: #0266C0;
     margin-left: 20px;
+}
+
+.cart-item-options {
+    margin: 0;
+}
+
+.cart-item-container {
+    padding: 20px 20px;
+    border-bottom: 1px solid #DFDFDF
+}
+
+.item-title {
+    margin: 0 20px
+}
+
+.price-quantity-container {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin: 0
 }

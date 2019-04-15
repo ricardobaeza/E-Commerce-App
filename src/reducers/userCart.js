@@ -1,5 +1,14 @@
 const userCart = (state = [], action) => {
-    return state;
+    switch (action.type) {
+        case 'add':
+            return state.concat(action.payload)
+        case 'delete':
+            state.splice(action.payload, 1);
+            return state;
+        default: 
+            return state;
+    }
+
 }
 
 

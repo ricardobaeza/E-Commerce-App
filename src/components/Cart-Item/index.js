@@ -7,14 +7,15 @@ const CartItems = (props) => {
             <div className="cart-Item">
                 <div className= "item-content">
                     <img src={props.img} alt={props.title} className="cart-img"/>
-                    <p>{props.title}</p>
+                    <p className="item-title">{props.title}</p>
                 </div>
-                <div>
-                    <p>{props.price}</p>
+                <div className= "price-quantity-container">
+                    <p className="cart-item-options">Quantity: {props.quantity}</p>
+                    <p className="cart-item-options"> {props.price}</p>
                 </div>
             </div>
             <div className="delete">
-                <p>delete</p>
+                <p className="cart-item-options" onClick={()=> props.deleteFunction(props.id)}>delete</p>
             </div>
         </div>
         

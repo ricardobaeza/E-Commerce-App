@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import "./style.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Product from "../Product/index"
 import {Link} from "react-router-dom"
 import {connect} from "react-redux";
@@ -11,7 +10,6 @@ class ProductsPage extends Component {
     }
 
     updateChange = (input) => {
-        console.log(input.target.value)
         this.setState({
             search: input.target.value
         })
@@ -23,10 +21,11 @@ class ProductsPage extends Component {
                         return product
                     } else if (product.category === this.state.search) {
                         return product
+                    } else {
+                        return null
                     }
             }
         )
-        console.log(this.props)
         return(
             <div>
                 <div className="header">
@@ -48,8 +47,8 @@ class ProductsPage extends Component {
                 </div>
                 <div className="main-content">
                         {
-                            filteredProducts.map(product =>     <div className="product-card">
-                                                                    <Link to={`/detailsPage/${product.id}`} key={product.id}>
+                            filteredProducts.map(product =>     <div className="product-card" key={product.id}>
+                                                                    <Link to={`/detailsPage/${product.id}`} >
                                                                     <Product 
                                                                          title={product.title} 
                                                                          description={product.description}
@@ -69,9 +68,9 @@ class ProductsPage extends Component {
 }
 
 const mapStateToProps = (state)=> {
-    console.log(state);
     return {
-        products: state.products
+        products: state.products,
+        Cart: state.userCart
     }
 }
 export default connect(mapStateToProps)(ProductsPage);

@@ -15,7 +15,9 @@ const allReducers = combineReducers({
   userCart: userCart
 })
 
-const store = createStore(allReducers);
+export const store = createStore(allReducers, window.devToolsExtension && window.devToolsExtension());
+
+
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

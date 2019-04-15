@@ -1,31 +1,44 @@
 import React, { Component} from 'react';
 import CartItem from "../Cart-Item"
-import "./styles.css"
+import "./styles.css";
+import {connect} from "react-redux";
+import { store } from "../../index"
+
+
 class Cart extends Component {
+
+    
+    deleteCartItem = (value)=> {
+        this.forceUpdate();
+        const deleteItem = {
+            type: 'delete',
+            payload: value
+        }
+        store.dispatch(deleteItem);
+    }
     render() {
-        const item = {
-            "id": 8,
-            "title": "Samsung - Galaxy S10 with 128GB Memory Cell Phone",
-            "description": "Premium experience that exceeds any and all expectations. A ridiculously powerful Pro-grade Camera, intelligent battery, in-display Ultrasonic Fingerprint ID and an immersive cinematic screen in a slim, balanced form. Galaxy S10+ takes your Galaxy to the next level.",
-            "img": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6323/6323532_sd.jpg",
-            "price": 849.99,
-            "rating": 4.7,
-            "category": "phone"
-          }
-        return (
-            <div>
-                <div className="header">
-                    <h1>Your Cart</h1>
+        if (this.props.Cart.length > 0) {
+            return (
+                <div>
+                    {
+                        this.props.Cart.map( (product ,index)=>  <CartItem  {...product.item} quantity={product.quantity} key={index} id={index} deleteFunction= {this.deleteCartItem}/>)
+                    }
                 </div>
-                <div className="Item-Row">
-                    <CartItem {...item}/>
-                </div>
-                <div className="Item-Row">
-                    <CartItem {...item}/>
-                </div>
-            </div>
-        )
+            )
+        } else {
+            return <div>Cart is empty</div>
+        }
+        
     }
 }
 
-export default Cart;
+// export default Cart;
+
+
+const mapStateToProps = (state)=> {
+    return {
+        products: state.products,
+        Cart: state.userCart
+    }
+}
+export default connect(mapStateToProps)(Cart);

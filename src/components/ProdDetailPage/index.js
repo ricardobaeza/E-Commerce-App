@@ -3,7 +3,6 @@ import "./style.css";
 import {connect} from "react-redux";
 import AddCartModal from "../addCartModal";
 
-
 class ProdDetailPage extends Component{
     state = {
         shouldHide: true
