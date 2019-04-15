@@ -2,7 +2,6 @@ import React, { Component} from "react";
 import './style.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {connect} from "react-redux";
-import { store } from "../../index"
 
 export class EditCartModal extends Component {
     state = {
