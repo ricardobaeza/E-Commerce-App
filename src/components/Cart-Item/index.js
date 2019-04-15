@@ -1,6 +1,5 @@
 import React from 'react';
 import "./style.css";
-import {EditCartModal} from "../editCartModal/index"
 const CartItems = (props) => {
     return (
         <div className="cart-item-container">
@@ -16,9 +15,8 @@ const CartItems = (props) => {
             </div>
             <div className="cart-item-options">
                 <p className="delete" onClick={()=> props.deleteFunction(props.id)}>delete</p>
-                <p className="edit" onClick={props.showEdit}>edit</p>
+                <p className="edit" onClick={()=> props.showEdit(props)}>edit</p>
             </div>
-            <EditCartModal isHidden={props.isHidden} exitModal={props.exitModal} {...props}/>
         </div>
         
     )

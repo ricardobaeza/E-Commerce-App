@@ -8,6 +8,7 @@ const userCart = (state = [], action) => {
             return state;
         case 'edit':
             console.log(action.payload.currentItemId);
+            console.log(action.payload.currentItem);
             let tempProduct = {};
             tempProduct.item = state[action.payload.currentItemId].item;
             tempProduct.quantity = action.payload.newQuantity

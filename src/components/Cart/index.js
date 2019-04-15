@@ -3,12 +3,15 @@ import CartItem from "../Cart-Item"
 import "./styles.css";
 import {connect} from "react-redux";
 import { store } from "../../index"
+import {EditCartModal} from "../editCartModal/index"
 
 
 class Cart extends Component {
 
     state = {
         hidden: true,
+        productId: null,
+        item: {}
     }
     
     deleteCartItem = (value)=> {
@@ -20,10 +23,15 @@ class Cart extends Component {
         store.dispatch(deleteItem);
     }
 
-    showEdit = () => {
+    showEdit = (item) => {
         this.setState({
-            hidden: false
+            hidden: false,
+            productId: item.id,
+            item: item
         })
+
+        console.log(item);
+        console.log(item.id)
     }
     hideEdit = () => {
         this.setState({
@@ -60,6 +68,11 @@ class Cart extends Component {
                                                                   editItem={this.editItem}
                                                                   />)
                     }
+                    <EditCartModal isHidden={this.state.hidden} 
+                                   item={this.state.item}
+                                   editItem={this.editItem}
+                                   id={this.state.productId}
+                                   exitModal={this.hideEdit}/>
                 </div>
             )
         } else {

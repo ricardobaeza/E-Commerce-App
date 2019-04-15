@@ -33,8 +33,8 @@ export class EditCartModal extends Component {
                     <div id="edit-icon" onClick={this.props.exitModal}>
                         <FontAwesomeIcon icon={"times-circle"} id="icon" />
                     </div>
-                    <p id = "quantity-edit">Quantity: </p>
-                    <select value= {this.props.editVal} onChange={this.updateValue}>
+                    <p id = "quantity-edit"> Quantity: </p>
+                    <select value= {this.state.editValue} onChange={this.updateValue}>
                         <option></option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
